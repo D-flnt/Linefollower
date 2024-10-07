@@ -7,17 +7,17 @@ lege repository die je als template kan gebruiken om een eigen repository te sta
   
 ## specifications
 
-microcontroller:
+microcontroller: ATmega32U4
 
-motors: 
+motors: Micro Metal Gearmotor 50:1
 
-h-bridge:
+h-bridge: TB6612FNG
 
-sensors:
+sensors: TCRT5000 Sensor Array
 
-batteries:
+batteries: 2 x 18650 Li-Ion
 
-wireless communication:
+wireless communication: HM-10
 
 distance sensor - motors:
 
