@@ -1,4 +1,3 @@
-const int stopButtonPin = 3;
 const int startButtonPin = 2;
 const int ledPin = 13;
 
@@ -6,25 +5,23 @@ volatile bool isRunning = false;
 
 void setup() {
   pinMode(startButtonPin, INPUT);
-  pinMode(stopButtonPin, INPUT);
   pinMode(ledPin, OUTPUT);
 
   attachInterrupt(digitalPinToInterrupt(startButtonPin), startISR, RISING);
-  attachInterrupt(digitalPinToInterrupt(stopButtonPin), stopISR, FALLING);
 }
 
 void loop() {
   if (isRunning) {
     digitalWrite(ledPin, HIGH);
+    delay(500);
+    digitalWrite(ledPin, LOW);
+    delay(500);
   } else {
     digitalWrite(ledPin, LOW);
   }
 }
 
 void startISR() {
-  isRunning = true;
-}
+  isRunning = !isRunning;
 
-void stopISR() {
-  isRunning = false;
 }
