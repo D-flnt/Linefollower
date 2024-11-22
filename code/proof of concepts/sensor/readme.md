@@ -8,3 +8,6 @@ Stap 3: Sluit de ground aan.
 Stap 4: Sluit de analoge ingangen aan op de analoge uitgangen van de sensor
 Stap 5: Voorzie de arduino van spanning
 Stap 6: upload het programma.
+Stap 7: Kijk in de debugger en het resultaat en het zou er als volgt uit moeten zien.
+![image](https://github.com/user-attachments/assets/cac27e02-0495-476b-8ecc-be6fc3a3c202)
+
