@@ -1,6 +1,5 @@
 # LineFollower Daan Flinterman 3AMA 2024
 
-lege repository die je als template kan gebruiken om een eigen repository te starten voor uw linefollower project
 
 ![Mijn linefollower](images/thumbnail_IMG_9620.jpg)
 
