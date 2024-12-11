@@ -2,6 +2,8 @@
 
 
 ![Mijn linefollower](images/thumbnail_IMG_9620.jpg)
+(images/thumbnail_IMG_9621.jpg)
+(images/thumbnail_IMG_9622.jpg)
 
   
 ## specifications
