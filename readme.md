@@ -2,8 +2,8 @@
 
 
 ![Mijn linefollower](images/thumbnail_IMG_9620.jpg)
-(images/thumbnail_IMG_9621.jpg)
-(images/thumbnail_IMG_9622.jpg)
+![](images/thumbnail_IMG_9621.jpg)
+![Onderzijde](images/thumbnail_IMG_9623.jpg)
 
   
 ## specifications
