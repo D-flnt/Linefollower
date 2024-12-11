@@ -2,26 +2,26 @@
 
 lege repository die je als template kan gebruiken om een eigen repository te starten voor uw linefollower project
 
-![A description of my image](images/empty.png)
+![A description of my image](images/empty.png)3
 
   
 ## specifications
 
-microcontroller: ATmega32U4
+microcontroller: ESP32
 
 motors: Micro Metal Gearmotor 50:1
 
-h-bridge: TB6612FNG
+h-bridge: DRV8833
 
-sensors: TCRT5000 Sensor Array
+sensors: QTR-8A Sensor Array
 
 batteries: 2 x 18650 Li-Ion
 
-wireless communication: HM-10
+wireless communication: Internal bluetooth module (ESP-32)
 
-distance sensor - motors:
+distance sensor - motors: 108mm
 
-weight:
+weight:316g
 
-speed: 
+speed: 0,42m/s
 
