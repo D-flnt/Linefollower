@@ -5,8 +5,8 @@ Een instructable is een stappenplan - zonder verdere uitleg - hoe je vertrekkend
 ### Stap 1
 bestel alle componenten uit de bill of materials 
 
-### Stap 2: Print het chassis
-Gebruik de 3D-tekening van het chassis om het frame van de robot te printen. Controleer of de bevestigingsgaten overeenkomen met de componenten zoals de motoren, batterijhouder en sensoren.
+### Stap 2
+Test de sensoren, Gebruik de POC testcode in de repository om te controleren of de QTR-8A-sensorarray correcte waarden geeft voor zwart en wit. Controleer ook de motoren. Upload de  POC testcode om ervoor te zorgen dat beide motoren in beide richtingen correct draaien met een verschillende snelheid.
 
 ### Stap 3: Monteer de motoren en wielen
 Bevestig de Micro Metal Gear Motors stevig aan het chassis.
