@@ -1,13 +1,11 @@
-# Sensoren proof of concept
+Sensoren proof of concept
+Minimale hard- en software die aantoont dat minimaal 6 sensoren onafhankelijk van elkaar kunnen uitgelezen worden (geen calibratie, normalisatie of interpolatie). Hierbij moet een zo groot mogelijk bereik van de AD converter benut worden (indien van toepassing).
 
-minimale hard- en software die aantoont dat minimaal 6 sensoren onafhankelijk van elkaar kunnen uitgelezen worden (geen calibratie, normalisatie of interpolatie). Hierbij moet een zo groot mogelijk bereik van de AD converter benut worden (indien van toepassing)
-
-Stap 1: zorg voor een arduino en een QTR-8 Sensor
-Stap 2: Sluit de vcc pin van de sensor aan op 3.3V van de arduino
-Stap 3: Sluit de ground aan.
-Stap 4: Sluit de analoge ingangen aan op de analoge uitgangen van de sensor
-Stap 5: Voorzie de arduino van spanning
-Stap 6: upload het programma.
-Stap 7: Kijk in de debugger en het resultaat en het zou er als volgt uit moeten zien.
-![image](https://github.com/user-attachments/assets/cac27e02-0495-476b-8ecc-be6fc3a3c202)
-
+Stappen:
+Zorg voor een ESP32 en een QTR-8 Sensor.
+Sluit de VCC pin van de sensor aan op 3.3V van de ESP32.
+Sluit de GND pin van de sensor aan op de GND van de ESP32.
+Sluit de analoge ingangen van de sensor aan op de analoge ingangen van de ESP32 (bijvoorbeeld GPIO36, GPIO39, GPIO34, GPIO35, GPIO32, GPIO33).
+Voorzie de ESP32 van spanning.
+Upload het programma naar de ESP32.
+Kijk in de seriële monitor (debugger) en het resultaat zou als volgt uit moeten zien.
