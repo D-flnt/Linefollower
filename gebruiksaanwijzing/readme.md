@@ -16,7 +16,7 @@ Je kan nu commandos doorsturen.
 
 #### commando's
 getPID: Vraag de huidige P, I en D waarde op.
-start: Laat de robot gaan rijden.
+start: Laat de robot rijden.
 stop: stopt de robot.
 baseSpeed[0..255]: Pas de basissnelheid aan (bij een rechte lijn)
 maxSpeed[0..255]: Pas de maximale snelheid aan (Om bij te sturen)
