@@ -1,42 +1,35 @@
 #include <BluetoothSerial.h>
 BluetoothSerial SerialBT;
 
-// Motor pinnen
 int motorA_IN1 = 4;
 int motorA_IN2 = 2;
 int motorB_IN1 = 19;
 int motorB_IN2 = 21;
 
-// Sensor pinnen (8 sensoren)
 const int sensorPins[8] = {27, 26, 25, 33, 32, 35, 34, 39};
 
-// PID parameters
 float Kp = 19;
 float Ki = 0;
 float Kd = 10;
 float integral = 0;
 float lastError = 0;
 
-// Motor snelheidsinstellingen
 int baseSpeed = 95;
 int maxSpeed = 140;
 int leftMotorSpeed;
 int rightMotorSpeed;
 
-// Sensorwaarden en gewichten
 int sensorValues[8];
 int weights[8] = {-6, -5, -4, -3, 3, 4, 5, 6};
 
-// Calibratie instellingen
 int blackValues[8];
 int whiteValues[8];
 
-// Status van de robot
 volatile bool isRunning = false;
 
 void setup() {
   Serial.begin(115200);
-  SerialBT.begin("LineFollower"); // Bluetooth naam
+  SerialBT.begin("LineFollower");
   Serial.println("Bluetooth gestart. Wacht op verbinding...");
 
   pinMode(motorA_IN1, OUTPUT);
@@ -61,48 +54,45 @@ void loop() {
 
     for (int i = 0; i < 8; i++) {
       sensorValues[i] = analogRead(sensorPins[i]);
-      if (sensorValues[i] > 512) { // Drempelwaarde voor lijn detectie
+      if (sensorValues[i] > 512) {
         totalWeight += weights[i] * sensorValues[i];
         totalActive += sensorValues[i];
       }
     }
 
-    if (totalActive == 0) { // Geen lijn gedetecteerd
+    if (totalActive == 0) {
       stopMotors();
-      isRunning = false; // Stop de robot
+      isRunning = false;
       SerialBT.println("Robot stopped: lost the line");
       return;
     }
 
     int error = totalWeight / totalActive;
 
-    // PID berekening
     integral += error;
     float derivative = error - lastError;
     float pidOutput = Kp * error + Ki * integral + Kd * derivative;
 
-    // Stel motor snelheden in
     leftMotorSpeed = baseSpeed - pidOutput;
     rightMotorSpeed = baseSpeed + pidOutput;
 
-    leftMotorSpeed = constrain(leftMotorSpeed, -maxSpeed, maxSpeed); // Veranderen naar zowel negatieve als positieve waarden
-    rightMotorSpeed = constrain(rightMotorSpeed, -maxSpeed, maxSpeed); // Veranderen naar zowel negatieve als positieve waarden
+    leftMotorSpeed = constrain(leftMotorSpeed, -maxSpeed, maxSpeed);
+    rightMotorSpeed = constrain(rightMotorSpeed, -maxSpeed, maxSpeed);
 
-    // Controleer de richting en stel de motoren in
     if (leftMotorSpeed >= 0) {
-      analogWrite(motorA_IN1, leftMotorSpeed);  // Motor naar voren
-      digitalWrite(motorA_IN2, LOW);  // Motor naar voren
+      analogWrite(motorA_IN1, leftMotorSpeed);
+      digitalWrite(motorA_IN2, LOW);
     } else {
-      analogWrite(motorA_IN1, -leftMotorSpeed);  // Motor achteruit
-      digitalWrite(motorA_IN2, HIGH);  // Motor achteruit
+      analogWrite(motorA_IN1, -leftMotorSpeed);
+      digitalWrite(motorA_IN2, HIGH);
     }
 
     if (rightMotorSpeed >= 0) {
-      analogWrite(motorB_IN1, rightMotorSpeed);  // Motor naar voren
-      digitalWrite(motorB_IN2, LOW);  // Motor naar voren
+      analogWrite(motorB_IN1, rightMotorSpeed);
+      digitalWrite(motorB_IN2, LOW);
     } else {
-      analogWrite(motorB_IN1, -rightMotorSpeed);  // Motor achteruit
-      digitalWrite(motorB_IN2, HIGH);  // Motor achteruit
+      analogWrite(motorB_IN1, -rightMotorSpeed);
+      digitalWrite(motorB_IN2, HIGH);
     }
 
     lastError = error;
@@ -111,7 +101,7 @@ void loop() {
 }
 
 void processCommand(String command) {
-  command.trim(); // Verwijder onzichtbare karakters
+  command.trim();
   
   if (command.startsWith("Kp")) {
     Kp = command.substring(2).toFloat();
@@ -154,7 +144,7 @@ void stopMotors() {
 }
 
 void onCalibrate(String command) {
-  command.trim(); // Verwijder onzichtbare karakters
+  command.trim();
   if (command.startsWith("calibrate black")) {
     SerialBT.println("Calibrating black...");
     for (int i = 0; i < 8; i++) {
