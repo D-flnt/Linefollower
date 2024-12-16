@@ -6,7 +6,7 @@ Minimale hard- en software die aantoont dat minimaal 6 sensoren onafhankelijk va
 1. Zorg voor een **ESP32** en een **QTR-8 Sensor**.
 2. Sluit de **VCC** pin van de sensor aan op **3.3V** van de ESP32.
 3. Sluit de **GND** pin van de sensor aan op de **GND** van de ESP32.
-4. Sluit de **analoge ingangen** van de sensor aan op de **analoge ingangen** van de ESP32 (bijvoorbeeld GPIO36, GPIO39, GPIO34, GPIO35, GPIO32, GPIO33).
+4. Sluit de **analoge ingangen** van de sensor volgens het schema van de ESP32.
 5. Voorzie de ESP32 van spanning.
 6. Upload het programma naar de ESP32.
-7. Kijk in de seriële monitor (debugger) en het resultaat zou als volgt uit moeten zien.
+7. Kijk in de seriële monitor (debugger) je zou hier de waardes van de sensoren moeten zien en de waardes zouden moeten veranderen als je je vinger voor de sensoren beweegt.
